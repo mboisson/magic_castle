@@ -85,13 +85,15 @@ locals {
     }
   })
 
-  terraform_facts = yamlencode({
-    software_stack = var.software_stack
-    cloud          = {
-      provider = var.cloud_provider
-      region = var.cloud_region
-    }
-  })
+  terraform_facts = yamlencode(
+    {
+      prefix = "banana"
+      software_stack = var.software_stack
+      cloud          = {
+        provider = var.cloud_provider
+        region = var.cloud_region
+      }
+    })
 
   user_data = {
     for key, values in var.inventory : key =>
@@ -100,6 +102,7 @@ locals {
         cloud_provider        = var.cloud_provider
         tags                  = values.tags
         node_name             = key,
+        node_prefix           = values.prefix,
         domain_name           = var.domain_name
         puppetenv_git         = var.config_git_url,
         puppetenv_rev         = var.config_version,
