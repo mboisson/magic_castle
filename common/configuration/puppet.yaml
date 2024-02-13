@@ -85,6 +85,7 @@ runcmd:
   - chgrp puppet /etc/puppetlabs/data /etc/puppetlabs/facts
   - ln -sf /etc/puppetlabs/data/terraform_data.yaml /etc/puppetlabs/code/environments/production/data/
   - ln -sf /etc/puppetlabs/data/user_data.yaml /etc/puppetlabs/code/environments/production/data/
+  - ln -sf /etc/puppetlabs/data/prefix.yaml /etc/puppetlabs/code/environments/production/data/
   - ln -sf /etc/puppetlabs/facts/terraform_facts.yaml /etc/puppetlabs/code/environments/production/site/profile/facts.d
 # We use r10k solely to install the modules of the main branch environment.
   - "(cd /etc/puppetlabs/code/environments/production; /opt/puppetlabs/puppet/bin/r10k puppetfile install)"
@@ -147,7 +148,8 @@ write_files:
     permissions: "0644"
   - path: /etc/puppetlabs/facts/external/prefix.yaml
     content: |
-      prefix : ${node_prefix}
+      ---
+      prefix : "${node_prefix}"
     permissions: "0640"
 %{ if contains(tags, "puppet") ~}
   - content: |

@@ -2,6 +2,7 @@ variable "bastions" { }
 variable "puppetservers" { }
 variable "terraform_data" { }
 variable "terraform_facts" { }
+variable "prefix_hieradata" { }
 variable "hieradata" { }
 variable "sudoer_username" { }
 variable "tf_ssh_key" { }
@@ -23,6 +24,7 @@ resource "terraform_data" "deploy_hieradata" {
     user_data      = md5(var.hieradata)
     terraform_data = md5(var.terraform_data)
     facts          = md5(var.terraform_facts)
+    prefix         = md5(var.prefix_hieradata)
   }
 
   provisioner "file" {
@@ -40,13 +42,18 @@ resource "terraform_data" "deploy_hieradata" {
     destination = "user_data.yaml"
   }
 
+  provisioner "file" {
+    content     = var.prefix_hieradata
+    destination = "prefix.yaml"
+  }
+
   provisioner "remote-exec" {
     inline = [
       "sudo mkdir -p /etc/puppetlabs/data /etc/puppetlabs/facts",
       # puppet user and group have been assigned the reserved UID/GID 52
-      "sudo install -o root -g 52 -m 650 terraform_data.yaml user_data.yaml /etc/puppetlabs/data/",
+      "sudo install -o root -g 52 -m 650 terraform_data.yaml user_data.yaml prefix.yaml /etc/puppetlabs/data/",
       "sudo install -o root -g 52 -m 650 terraform_facts.yaml /etc/puppetlabs/facts/",
-      "rm -f terraform_data.yaml user_data.yaml terraform_facts.yaml",
+      "rm -f terraform_data.yaml user_data.yaml terraform_facts.yaml prefix.yaml",
       "[ -f /usr/local/bin/consul ] && [ -f /usr/bin/jq ] && consul event -token=$(sudo jq -r .acl.tokens.agent /etc/consul/config.json) -name=puppet $(date +%s) || true",
     ]
   }

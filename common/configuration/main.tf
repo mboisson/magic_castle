@@ -87,13 +87,16 @@ locals {
 
   terraform_facts = yamlencode(
     {
-      prefix = "banana"
       software_stack = var.software_stack
       cloud          = {
         provider = var.cloud_provider
         region = var.cloud_region
       }
     })
+
+  prefix_hieradata = yamlencode({
+    for key, values in var.inventory : values.prefix => yamldecode(values.hieradata)
+  })
 
   user_data = {
     for key, values in var.inventory : key =>
@@ -131,6 +134,11 @@ locals {
       }
     )
   }
+}
+
+output "prefix_hieradata" {
+  value     = local.prefix_hieradata
+  sensitive = false
 }
 
 output "user_data" {
