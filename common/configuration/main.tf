@@ -94,6 +94,9 @@ locals {
       }
     })
 
+  # Ideally, all the prefix hieradata would be in separated files, but dynamic provisioners are not supported by Terraform.
+  # https://github.com/hashicorp/terraform/issues/30225
+  # Instead, we copy all the prefix hieradata into one file, and Puppet parses them accordingly.
   prefix_hieradata = yamlencode({
     for key, values in var.inventory : values.prefix => yamldecode(values.hieradata)
   })
