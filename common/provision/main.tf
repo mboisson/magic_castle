@@ -7,6 +7,13 @@ variable "hieradata" { }
 variable "sudoer_username" { }
 variable "tf_ssh_key" { }
 
+resource "local_file" "hieradata" {
+  for_each = yamldecode(var.prefix_hieradata)
+
+  content  = yamlencode(each.value)
+  filename = "${path.cwd}/hierdata/${each.key}.yaml"
+}
+
 resource "terraform_data" "deploy_hieradata" {
   for_each = length(var.bastions) > 0  ? var.puppetservers : { }
 
@@ -45,6 +52,11 @@ resource "terraform_data" "deploy_hieradata" {
   provisioner "file" {
     content     = var.prefix_hieradata
     destination = "prefix.yaml"
+  }
+
+  provisioner "file" {
+    source     = "${path.cwd}/hierdata"
+    destination = "/tmp/hierdata"
   }
 
   provisioner "remote-exec" {
