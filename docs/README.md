@@ -884,6 +884,10 @@ the provided content will replace entirely the Magic Castle environment's
 **Post build modification effect**: None. To modify the Puppetfile after the cluster is initialized, log
 on the Puppet server and modify `/etc/puppetlabs/code/environments/production/Puppetfile`.
 
+### 4.20 hieradata_folder_path (optional)
+
+**default value**: empty string
+
 ## 5. Cloud Specific Configuration
 
 ### 5.1 Amazon Web Services
