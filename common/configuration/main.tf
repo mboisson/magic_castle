@@ -90,8 +90,7 @@ locals {
     cloud          = {
       provider = var.cloud_provider
       region = var.cloud_region
-    },
-    tags = [for _, values in var.inventory
+    }
   })
 
   user_data = {
