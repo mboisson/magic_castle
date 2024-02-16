@@ -563,9 +563,6 @@ Default root disk's attribute value per provider:
 For some cloud providers, it possible to define additional attributes.
 The following sections present the available attributes per provider.
 
-5. `hieradata`: Specific hieradata applied only to those instances. Refer to section [4.13 - Hieradata](#413-hieradata-optional) for additional information on hieradata usage and examples.
-
-
 ##### AWS
 
 For instances with the `spot` tags, these attributes can also be set:

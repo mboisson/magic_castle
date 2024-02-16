@@ -36,8 +36,8 @@ module "provision" {
   tf_ssh_key       = module.configuration.ssh_key
   terraform_data   = module.configuration.terraform_data
   terraform_facts  = module.configuration.terraform_facts
-  prefix_hieradata = module.configuration.prefix_hieradata
   hieradata        = var.hieradata
+  hieradata_folder = var.hieradata_folder_path
   sudoer_username  = var.sudoer_username
   depends_on       = [local.network_provision_dep]
 }
@@ -128,7 +128,6 @@ locals {
       local_ip  = openstack_networking_port_v2.nic[x].all_fixed_ips[0]
       prefix    = values.prefix
       tags      = values.tags
-      hieradata = lookup(values, "hieradata", "---")
       specs = {
         cpus = data.openstack_compute_flavor_v2.flavors[values.prefix].vcpus
         ram  = data.openstack_compute_flavor_v2.flavors[values.prefix].ram

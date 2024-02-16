@@ -85,20 +85,13 @@ locals {
     }
   })
 
-  terraform_facts = yamlencode(
-    {
-      software_stack = var.software_stack
-      cloud          = {
-        provider = var.cloud_provider
-        region = var.cloud_region
-      }
-    })
-
-  # Ideally, all the prefix hieradata would be in separated files, but dynamic provisioners are not supported by Terraform.
-  # https://github.com/hashicorp/terraform/issues/30225
-  # Instead, we copy all the prefix hieradata into one file, and Puppet parses them accordingly.
-  prefix_hieradata = yamlencode({
-    for key, values in var.inventory : values.prefix => yamldecode(values.hieradata)
+  terraform_facts = yamlencode({
+    software_stack = var.software_stack,
+    cloud          = {
+      provider = var.cloud_provider
+      region = var.cloud_region
+    },
+    tags = [for _, values in var.inventory
   })
 
   user_data = {
@@ -137,11 +130,6 @@ locals {
       }
     )
   }
-}
-
-output "prefix_hieradata" {
-  value     = local.prefix_hieradata
-  sensitive = false
 }
 
 output "user_data" {
