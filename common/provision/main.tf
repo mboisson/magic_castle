@@ -13,7 +13,7 @@ data "local_file" "hieradata_yaml" {
 }
 
 data "local_file" "hieradata_subfolder" {
-  for_each = var.hieradata_folder != "" ? fileset("${var.hieradata_folder}", "{prefix,tag,hostname}/*.yaml") : []
+  for_each = var.hieradata_folder != "" ? fileset("${var.hieradata_folder}", "{prefix,hostname}/**/*.yaml") : []
   filename = "${var.hieradata_folder}/${each.value}"
 }
 
@@ -31,7 +31,7 @@ locals {
     {for value in data.local_file.hieradata_subfolder: replace(value.filename, var.hieradata_folder, "") => value.content_md5},
   )
   triggers_hieradata_folder = {
-    hierdata_yaml  = local.hieradata_md5
+    hieradata_yaml  = local.hieradata_md5
   }
 
   triggers_hieradata = {
