@@ -196,6 +196,7 @@ locals {
         cpus = data.aws_ec2_instance_type.instance_type[values.prefix].default_vcpus
         ram  = data.aws_ec2_instance_type.instance_type[values.prefix].memory_size
         gpus = try(one(data.aws_ec2_instance_type.instance_type[values.prefix].gpus).count, 0)
+        mig  = lookup(values, "mig", null)
       }
       volumes = contains(keys(module.design.volume_per_instance), x) ? {
         for pv_key, pv_values in var.volumes:

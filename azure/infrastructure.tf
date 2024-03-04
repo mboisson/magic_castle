@@ -159,6 +159,7 @@ locals {
         cpus = local.vmsizes[values.type].vcpus
         ram  = local.vmsizes[values.type].ram
         gpus = local.vmsizes[values.type].gpus
+        mig  = lookup(values, "mig", null)
       }
       volumes = contains(keys(module.design.volume_per_instance), x) ? {
         for pv_key, pv_values in var.volumes:

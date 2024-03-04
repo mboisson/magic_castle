@@ -123,6 +123,7 @@ locals {
           parseint(lookup(data.openstack_compute_flavor_v2.flavors[values.prefix].extra_specs, "resources:VGPU", "0"), 10),
           parseint(split(":", lookup(data.openstack_compute_flavor_v2.flavors[values.prefix].extra_specs, "pci_passthrough:alias", "gpu:0"))[1], 10)
         ])
+        mig  = lookup(values, "mig", null)
       }
       volumes = contains(keys(module.design.volume_per_instance), x) ? {
         for pv_key, pv_values in var.volumes:
