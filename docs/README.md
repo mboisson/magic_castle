@@ -871,12 +871,6 @@ if previously instantiated.
 If true, the base image packages will not be upgraded during the first boot. By default,
 all packages are upgraded.
 
-**Note 1**: Do not skip package upgrade if the infrastructure includes instances 
-with specialized hardware like a GPU or an Infiniband adapter. These devices generally
-require the compilation of dynamic kernel modules ([DKMS](https://en.wikipedia.org/wiki/Dynamic_Kernel_Module_Support)),
-with the latest kernel headers.
-
-
 **Post build modification effect**: No effect on currently built instances. Ones created
 after the modification will take into consideration the new value of the parameter to determine
 whether they should upgrade the base image packages or not.
