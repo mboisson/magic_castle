@@ -202,7 +202,10 @@ locals {
         for pv_key, pv_values in var.volumes:
           pv_key => {
             for name, specs in pv_values:
-              name => ["/dev/disk/by-id/*${replace(aws_ebs_volume.volumes["${x}-${pv_key}-${name}"].id, "-", "")}"]
+              name => merge(
+                { glob = "/dev/disk/by-id/*${replace(aws_ebs_volume.volumes["${x}-${pv_key}-${name}"].id, "-", "")}" },
+                specs,
+              )
           } if contains(values.tags, pv_key)
        } : {}
     }
