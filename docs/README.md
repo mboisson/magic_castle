@@ -868,8 +868,8 @@ if previously instantiated.
 
 **default_value** = `false`
 
-Determines whether the base image packages will be upgraded during the first boot or not. By default,
-all packages are upgraded. If `skip_upgrade` set to `true`, no package will be upgraded on first boot.
+If true, the base image packages will not be upgraded during the first boot. By default,
+all packages are upgraded.
 
 **Post build modification effect**: No effect on currently built instances. Ones created
 after the modification will take into consideration the new value of the parameter to determine
@@ -1515,7 +1515,7 @@ fail2ban keeps a list of ip addresses that are allowed to fail to login without 
 time. To add an ip address to that list,  add the following lines
 to the variable `hieradata` in `main.tf`:
 ```yaml
-fail2ban::ignoreip:
+fail2ban::whitelist:
   - x.x.x.x
   - y.y.y.y
 ```
