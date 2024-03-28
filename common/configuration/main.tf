@@ -56,7 +56,7 @@ locals {
     tag => [for key, values in var.inventory : values.local_ip if contains(values.tags, tag)]
   }
 
-  ssh_authorized_keys = var.generate_ssh_key ? concat(var.public_keys, ["${chomp(tls_private_key.ssh[0].public_key_openssh)} terraform@localhost"]) :  var.public_keys
+  ssh_authorized_keys = var.generate_ssh_key ? concat(var.public_keys, ["command=\"logger -t centos_ssh_command -p local0.info $SSH_ORIGINAL_COMMAND; $SSH_ORIGINAL_COMMAND\" ${chomp(tls_private_key.ssh[0].public_key_openssh)} terraform@localhost"]) :  var.public_keys
 
   # add openssh public key to inventory
   inventory = { for host, values in var.inventory:
