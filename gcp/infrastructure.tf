@@ -160,8 +160,8 @@ data "google_compute_disk" "existing_volumes" {
 
 resource "google_compute_attached_disk" "attachments" {
   for_each    = module.design.volumes
-  disk        = try(google_compute_disk.volumes[each.key].self_link, google_compute_disk.existing_volumes[each.key].self_link)
-  device_name = try(google_compute_disk.volumes[each.key].name, google_compute_disk.existing_volumes[each.key].name)
+  disk        = try(google_compute_disk.volumes[each.key].self_link, data.google_compute_disk.existing_volumes[each.key].self_link)
+  device_name = try(google_compute_disk.volumes[each.key].name, data.google_compute_disk.existing_volumes[each.key].name)
   mode        = "READ_WRITE"
   instance    = google_compute_instance.instances[each.value.instance].self_link
 }
