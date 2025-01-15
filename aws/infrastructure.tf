@@ -163,7 +163,7 @@ locals {
 resource "aws_volume_attachment" "attachments" {
   for_each     = module.design.volumes
   device_name  = local.device_names[index(module.design.volume_per_instance[each.value.instance], replace(each.key, "${each.value.instance}-", ""))]
-  volume_id    = try(aws_ebs_volume.volumes[each.key].id, aws_ebs_volume.existing_volumes[each.key].id)
+  volume_id    = try(aws_ebs_volume.volumes[each.key].id, data.aws_ebs_volume.existing_volumes[each.key].id)
   instance_id  = aws_instance.instances[each.value.instance].id
   skip_destroy = true
 }
@@ -187,7 +187,7 @@ locals {
           pv_key => {
             for name, specs in pv_values:
               name => merge(
-                { glob = try("/dev/disk/by-id/*${replace(aws_ebs_volume.volumes["${x}-${pv_key}-${name}"].id, "-", "")}", "/dev/disk/by-id/*${replace(aws_ebs_volume.existing_volumes["${x}-${pv_key}-${name}"].id, "-", "")}") },
+                { glob = try("/dev/disk/by-id/*${replace(aws_ebs_volume.volumes["${x}-${pv_key}-${name}"].id, "-", "")}", "/dev/disk/by-id/*${replace(data.aws_ebs_volume.existing_volumes["${x}-${pv_key}-${name}"].id, "-", "")}") },
                 specs,
               )
           } if contains(values.tags, pv_key)
