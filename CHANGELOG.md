@@ -3,6 +3,30 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [14.2.1] 2025-02-21
+
+No changes to infrastructure code.
+
+Refer to [puppet-magic_castle changelog](https://github.com/ComputeCanada/puppet-magic_castle/blob/main/CHANGELOG.md)
+
+## [14.2.0] 2025-02-20
+
+### Added
+
+- Added documentation for FreeIPA configuration (PR #344)
+
+### Changed
+
+- Generalized definition of instance's specs (PR #341)
+- Made tf user a system user (PR #343)
+- Splited sshd config so that Match directives are in their own files (PR #345)
+
+## [14.1.3] 2025-01-29
+
+### Changed
+
+- Set an upper bound on CloudFlare provider version.
+
 ## [14.1.2] 2024-11-10
 
 ### Added
