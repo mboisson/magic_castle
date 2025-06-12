@@ -12,11 +12,11 @@
 ## 1. Setup
 
 To develop for Magic Castle you will need:
-* Terraform (>= 1.4.0)
+* Terraform (>= 1.5.7)
 * git
 * Access to a Cloud (e.g.: Compute Canada Arbutus)
 * Ability to communicate with the cloud provider API from your computer
-* A cloud project with enough room for the resource described in section [Magic Caslte Doc 1.1](README.md#11-quotas).
+* A cloud project with enough room for the resources described in [section 1.4](README.md#14-quotas).
 * [optional] [Puppet Development Kit (PDK)](https://www.puppet.com/docs/pdk/latest/pdk.html)
 
 ## 2. Where to start

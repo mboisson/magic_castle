@@ -3,6 +3,29 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [14.3.0] 2025-05-22
+
+### Added
+- [github] Added Trivy misconfiguration scan of Terraform code (PR #355)
+- [github] Added advanced examples to validation in CI/CD (PR #358)
+
+### Changed
+
+- [dns] The default list of vhost subdomains has been replaced by a `["*"]`.
+This simplifies configuration of new virtual hosts in the reverse proxy. (PR #347)
+- [common] Made sure ssh keys do not have whitespace prefix or suffix (PR #350)
+- [aws] Reduced choices of availablity zones in AWS (PR #351)
+- [common] Bumped terraform minimum version to 1.5.7
+- [common] Improved instance root disk size computation and warnings (PR #353)
+- [github] Modernized github workflows (PR #356)
+- [common] Made `count` optional in validation (PR #357)
+- [cloud-init] Enabled puppet prometheus reporting (PR #349)
+- [cloud-init] Moved puppet server inclusion in /etc/hosts to earlier steps
+
+### Removed
+
+- [aws] Removed key pair resource (PR #359)
+
 ## [14.2.1] 2025-02-21
 
 No changes to infrastructure code.
@@ -19,7 +42,7 @@ Refer to [puppet-magic_castle changelog](https://github.com/ComputeCanada/puppet
 
 - Generalized definition of instance's specs (PR #341)
 - Made tf user a system user (PR #343)
-- Splited sshd config so that Match directives are in their own files (PR #345)
+- Split sshd config so that Match directives are in their own files (PR #345)
 
 ## [14.1.3] 2025-01-29
 

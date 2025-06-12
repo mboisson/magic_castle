@@ -6,7 +6,7 @@
 
 To use Magic Castle you will need:
 
-1. Terraform (>= 1.4.0)
+1. Terraform (>= 1.5.7)
 2. Authenticated access to a cloud
 3. Ability to communicate with the cloud provider API from your computer
 4. A project with operational limits meeting the requirements described in _Quotas_ subsection.
@@ -498,7 +498,7 @@ instance, while in Puppet code tags are used to identify roles of the instances.
 Terraform tags:
 
 - `login`: identify instances accessible with SSH from Internet and pointed by the domain name A records
-- `pool`: identify instances created only when their hostname appears in the [`var.pool`](#417-pool-optional) list.
+- `pool`: identify instances created only when their hostname appears in the [`var.pool`](#419-pool-optional) list.
 - `proxy`: identify instances accessible with HTTP/HTTPS and pointed by the vhost A records
 - `public`: identify instances that need to have a public ip address reachable from Internet
 - `puppet`: identify instances configured as Puppet servers
@@ -532,14 +532,20 @@ be leveraged to accelerate compute node configuration.
     | Provider | `disk_type` | `disk_size` (GiB) |
     | -------- | :---------- | ----------------: |
     | Azure    |`Premium_LRS`| 30                |
-    | AWS      | `gp2`       | 10                |
+    | AWS      | `gp2`       | 20                |
     | GCP      | `pd-ssd`    | 20                |
     | OpenStack| `null`      | 10                |
     | OVH      | `null`      | 10                |
 
 4. `disk_size`: size in gibibytes (GiB) of the instance's root disk containing
-the operating system and service software
-(default: see the previous table).
+the operating system and service software. The default value is computed has the
+maximum between the cloud provider default size (see previous table) and the
+recommended minimum size per tag as specified in the following table.
+
+    | Tag      | min `disk_size` (GiB) |
+    | -------- | --------------------: |
+    | `mgmt`   | 20                    |
+
 5. `mig`: map of [NVIDIA Multi-Instance GPU (MIG)](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/index.html) short profile names and count used to partition the instances' GPU, example for an A100:
     ```
     mig = { "1g.5gb" = 2, "2g.10gb" = 1, "3g.20gb" = 1 }
@@ -1111,7 +1117,7 @@ Refer to the subsection [6.3](#63-unsupported-providers) for more details.
 
 #### 6.1.2 Cloudflare API Token
 
-If you prefer using an API token instead of the global API key, you will need to configure a token with the following four permissions with the [Cloudflare API Token interface](https://dash.cloudflare.com/profile/api-tokens).
+If you prefer using an API token instead of the global API key, you will need to configure a token with the following permissions using the [Cloudflare API Token interface](https://dash.cloudflare.com/profile/api-tokens).
 
 | Section | Subsection | Permission|
 | :------ |:---------- | :-------- |
@@ -1182,7 +1188,7 @@ described by the `main.tf` configuration file.
 Terraform should now be able to communicate with your cloud provider.
 To test your configuration file, enter the following command
 ```
-terraform plan
+terraform plan -out tfplan
 ```
 
 This command will validate the syntax of your configuration file and
@@ -1190,6 +1196,49 @@ communicate with the provider, but it will not create new resources. It
 is only a dry-run. If Terraform does not report any error, you can move
 to the next step. Otherwise, read the errors and fix your configuration
 file accordingly.
+
+### 7.1 Scanning plan for misconfiguration (optional)
+
+[Trivy](https://trivy.dev/latest/) is an open source security scanner
+that scans Terraform files (code and plan) and reports about potential issues.
+Magic Castle development team has integrated Trivy in its
+[CI/CD pipeline](https://github.com/ComputeCanada/magic_castle/blob/main/.github/workflows/trivy_scan.yaml)
+to prevent misconfiguration and security issues that could be introduced
+by commits or a pull-requests. You too can use Trivy to verify your Terraform plan
+before applying it.
+
+After [installing Trivy](https://trivy.dev/latest/getting-started/), you can
+scan the Terraform plan produced in section 7, like this:
+```
+trivy conf tfplan
+```
+
+Trivy then produces a report about configuration issues like this:
+```console
+AVD-OPNSTK-0003 (MEDIUM): Security group rule allows ingress to multiple public addresses.
+═════════════════════════════════════════════════════════════════════════
+Opening up ports to the public internet is generally to be avoided. You should
+restrict access to IP addresses or ranges that explicitly require it where possible.
+
+See https://avd.aquasec.com/misconfig/avd-opnstk-0003
+─────────────────────────────────────────────────────────────────────────
+ ./openstack/openstack/network-2.tf:53
+   via ./openstack/openstack/network-2.tf:45-56 (openstack_networking_secgroup_rule_v2.rule["ssh"])
+    via main.tf:10-44 (module.openstack)
+─────────────────────────────────────────────────────────────────────────
+  45   resource openstack_networking_secgroup_rule_v2 "rule" {
+  ..
+  53 [   remote_ip_prefix  = each.value.cidr
+  ..
+  56   }
+─────────────────────────────────────────────────────────────────────────
+```
+
+The most common configuration issues identified by Trivy in Magic Castle plans
+(illustrated in the previous output example), are firewall rules allowing access to port from
+public internet. If you know which IP addresses should have access to the cluster,
+you can harden the firewall rules. Refer to section [4.16 firewall_rules](#416-firewall_rules-optional)
+for more information.
 
 ## 8. Deployment
 
@@ -1274,16 +1323,15 @@ It is possible to destroy only the instances and keep the rest of the infrastruc
 like the floating ip, the volumes, the generated SSH host key, etc. To do so, set
 the count value of the instance type you wish to destroy to 0.
 
-### 9.2 Reset
+### 9.2 Instance Replacement
 
 On some occasions, it is desirable to rebuild some of the instances from scratch.
-Using `terraform taint`, you can designate resources that will be rebuilt at
-next application of the plan.
+Using the `-replace` option of `terraform apply`, you can designate resources
+that will be rebuilt at next application of the plan.
 
-To rebuild the first login node :
+For example, to rebuild the first login node :
 ```
-terraform taint 'module.openstack.openstack_compute_instance_v2.instances["login1"]'
-terraform apply
+terraform apply -replace='module.openstack.openstack_compute_instance_v2.instances["login1"]'
 ```
 
 ## 10. Customize Cluster Software Configuration
@@ -1408,7 +1456,7 @@ By default, instances tagged `login` have their port 22 opened to entire world.
 If you know the range of ip addresses that will connect to your cluster,
 we strongly recommend that you limit the access to port 22 to this range.
 
-To limit the access to port 22, refer to [section 4.14 firewall_rules](#414-firewall_rules-optional),
+To limit the access to port 22, refer to [section 4.16 firewall_rules](#416-firewall_rules-optional),
 and replace the `cidr` of the `ssh` rule to match the range of ip addresses that
 have be the allowed to connect to the cluster. If there are more than one range, create multiple rules
 with distinct names.
@@ -1687,6 +1735,28 @@ Volumes defined in the `volumes` map can be expanded at will. To enable online e
 a volume, add `enable_resize = true` to its specs map. You can then increase the size at will.
 The corresponding volume will be expanded by the cloud provider and the filesystem will be
 extended by Puppet.
+
+### 10.15 Access Prometheus' expression browser
+
+Prometheus is an open-source systems monitoring and alerting toolkit. It is installed by default
+in Magic Castle. Every instance exposes their usage metrics and some services do to. To explore
+and visualize this data, it possible to access the [expression browser](https://prometheus.io/docs/visualization/browser/).
+
+From inside the cluster, it is typically available at `http://mgmt1:9090`. Given DNS is configured
+for your cluster, you can add the following snippet to your [hieradata](#413-hieradata-optional). to access the expression browser
+from Internet.
+
+```yaml
+lookup_options:
+  profile::reverse_proxy::subdomains:
+    merge: 'hash'
+profile::reverse_proxy::subdomains:
+  metrics: "%{lookup('terraform.tag_ip.mgmt.0')}:9090"
+profile::reverse_proxy::remote_ips:
+  metrics: ['<REPLACE_BY_YOUR_OWN_IP>']
+```
+
+Prometheus will then be available at `http://metrics.your-cluster.yourdomain.tld/`.
 
 ## 11. Customize Magic Castle Terraform Files
 
