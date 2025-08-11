@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
       
       
 
@@ -623,99 +623,110 @@ provider based on its role in the cluster.</p>
 <thead>
 <tr>
 <th>Resource</th>
-<th style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc">AWS</a></th>
-<th style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs">Azure</a></th>
-<th style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs">Google Cloud Platform</a></th>
+<th><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc">AWS</a></th>
+<th><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs">Azure</a></th>
+<th><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs">Google Cloud Platform</a></th>
+<th><a href="https://registry.terraform.io/providers/lxc/incus/latest/docs">Incus</a></th>
 <th><a href="https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/">OpenStack</a></th>
-<th style="text-align: left;">OVH</th>
+<th>OVH</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>network</td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc">aws_vpc</a></td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network">azurerm_virtual_network</a></td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network">google_compute_network</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc">aws_vpc</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network">azurerm_virtual_network</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network">google_compute_network</a></td>
+<td><a href="https://registry.terraform.io/providers/lxc/incus/latest/docs/resources/network">incus_network</a></td>
 <td>prebuilt</td>
-<td style="text-align: left;">openstack_networking_network_v2</td>
+<td>openstack_networking_network_v2</td>
 </tr>
 <tr>
 <td>subnet</td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet">aws_subnet</a></td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet">azurerm_subnet</a></td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork">google_compute_subnetwork</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet">aws_subnet</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet">azurerm_subnet</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork">google_compute_subnetwork</a></td>
+<td><a href="https://registry.terraform.io/providers/lxc/incus/latest/docs/resources/network">incus_network</a></td>
 <td>prebuilt</td>
-<td style="text-align: left;">openstack_networking_subnet_v2</td>
+<td>openstack_networking_subnet_v2</td>
 </tr>
 <tr>
 <td>router</td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route">aws_route</a></td>
-<td style="text-align: left;">not used</td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router">google_compute_router</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route">aws_route</a></td>
+<td>not used</td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router">google_compute_router</a></td>
 <td>built-in</td>
-<td style="text-align: left;">not used</td>
+<td>built-in</td>
+<td>not used</td>
 </tr>
 <tr>
 <td>nat</td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway">aws_internet_gateway</a></td>
-<td style="text-align: left;">not used</td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router_nat">google_compute_router_nat</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway">aws_internet_gateway</a></td>
+<td>not used</td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router_nat">google_compute_router_nat</a></td>
 <td>built-in</td>
-<td style="text-align: left;">not used</td>
+<td>built-in</td>
+<td>not used</td>
 </tr>
 <tr>
 <td>firewall</td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group">aws_security_group</a></td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group">azurerm_network_security_group</a></td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall">google_compute_firewall</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group">aws_security_group</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group">azurerm_network_security_group</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall">google_compute_firewall</a></td>
+<td>not implemented</td>
 <td><a href="https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/compute_secgroup_v2">openstack_compute_secgroup_v2</a></td>
-<td style="text-align: left;">openstack_compute_secgroup_v2</td>
+<td>openstack_compute_secgroup_v2</td>
 </tr>
 <tr>
 <td>nic</td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_interface">aws_network_interface</a></td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface">azurerm_network_interface</a></td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_address">google_compute_address</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_interface">aws_network_interface</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface">azurerm_network_interface</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_address">google_compute_address</a></td>
+<td>not available</td>
 <td><a href="https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/networking_port_v2">openstack_networking_port_v2</a></td>
-<td style="text-align: left;">openstack_networking_port_v2</td>
+<td>openstack_networking_port_v2</td>
 </tr>
 <tr>
 <td>public ip</td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip">aws_eip</a></td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip">azurerm_public_ip</a></td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_address">google_compute_address</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip">aws_eip</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip">azurerm_public_ip</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_address">google_compute_address</a></td>
+<td>not available</td>
 <td><a href="https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/networking_floatingip_v2">openstack_networking_floatingip_v2</a></td>
-<td style="text-align: left;">openstack_networking_network_v2</td>
+<td>openstack_networking_network_v2</td>
 </tr>
 <tr>
 <td>instance</td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance">aws_instance</a></td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine">azurerm_linux_virtual_machine</a></td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance">google_compute_instance</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance">aws_instance</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine">azurerm_linux_virtual_machine</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance">google_compute_instance</a></td>
+<td><a href="https://registry.terraform.io/providers/lxc/incus/latest/docs/resources/instance">incus_instance</a></td>
 <td><a href="https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/compute_instance_v2">openstack_compute_instance_v2</a></td>
-<td style="text-align: left;">openstack_compute_instance_v2</td>
+<td>openstack_compute_instance_v2</td>
 </tr>
 <tr>
 <td>volume</td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_volume">aws_ebs_volume</a></td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/managed_disk">azurerm_managed_disk</a></td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_disk">google_compute_disk</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_volume">aws_ebs_volume</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/managed_disk">azurerm_managed_disk</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_disk">google_compute_disk</a></td>
+<td>not implemented</td>
 <td><a href="https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/blockstorage_volume_v3">openstack_blockstorage_volume_v3</a></td>
-<td style="text-align: left;">openstack_blockstorage_volume_v3</td>
+<td>openstack_blockstorage_volume_v3</td>
 </tr>
 <tr>
 <td>attachment</td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/volume_attachment">aws_volume_attachment</a></td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine_data_disk_attachment">azurerm_virtual_machine_data_disk_attachment</a></td>
-<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_attached_disk">google_compute_attached_disk</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/volume_attachment">aws_volume_attachment</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine_data_disk_attachment">azurerm_virtual_machine_data_disk_attachment</a></td>
+<td><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_attached_disk">google_compute_attached_disk</a></td>
+<td>not implemented</td>
 <td><a href="https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/compute_volume_attach_v2">openstack_compute_volume_attach_v2</a></td>
-<td style="text-align: left;">openstack_compute_volume_attach_v2</td>
+<td>openstack_compute_volume_attach_v2</td>
 </tr>
 </tbody>
 </table>
 <h2 id="using-reference-design-to-extend-for-a-new-cloud-provider">Using reference design to extend for a new cloud provider</h2>
-<p>Magic Castle currently supports five cloud providers, but its design makes it easy to add
-new providers. This section presents a step-by-step guide to add a new cloud provider
+<p>Magic Castle currently supports six providers, but its design makes it easy to add
+new ones. This section presents a step-by-step guide to add a new provider
 support to Magic Castle.</p>
 <ol>
 <li>
@@ -735,10 +746,23 @@ two symlinks, one pointing to <code>common/variables.tf</code> and the other to 
 files define the interface common to all providers supported by Magic Castle.</p>
 </li>
 <li>
+<p><strong>Specify the provider version to user</strong>. Create a file named <code>versions.tf</code>. In this file, paste the
+<code>terraform</code> block content provided when clicking on "Use this provider" button in the Terraform provider
+documentation, i.e:
+    <div class="highlight"><pre><span></span><code>terraform {
+  required_providers {
+    incus = {
+      source = &quot;lxc/incus&quot;
+      version = &quot;0.3.1&quot;
+    }
+  }
+}
+</code></pre></div></p>
+</li>
+<li>
 <p><strong>Define cloud provider specifics variables</strong>. Create a file named after your provider
 <code>provider_name.tf</code> and define variables that are required by the provider but not common to all
-providers, for example the availability zone or the region. In this file, define two local
-variables named <code>cloud_provider</code> and <code>cloud_region</code>.</p>
+providers, for example the availability zone or the region.</p>
 </li>
 <li>
 <p><strong>Initialize the infrastructure</strong>. Create a file named  <code>infrastructure.tf</code>. In this file:</p>
@@ -750,12 +774,15 @@ variables named <code>cloud_provider</code> and <code>cloud_region</code>.</p>
 </code></pre></div></li>
 <li>include the design module
     <div class="highlight"><pre><span></span><code><span class="kr">module</span><span class="w"> </span><span class="nv">&quot;design&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">source</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;../common/design&quot;</span>
-<span class="w">  </span><span class="na">cluster_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.cluster_name</span>
-<span class="w">  </span><span class="na">domain</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="nv">var.domain</span>
-<span class="w">  </span><span class="na">instances</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nv">var.instances</span>
-<span class="w">  </span><span class="na">pool</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="nv">var.pool</span>
-<span class="w">  </span><span class="na">volumes</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="nv">var.volumes</span>
+<span class="w">  </span><span class="na">source</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;../common/design&quot;</span>
+<span class="w">  </span><span class="na">cluster_name</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nv">var.cluster_name</span>
+<span class="w">  </span><span class="na">domain</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="nv">var.domain</span>
+<span class="w">  </span><span class="na">image</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="nv">var.image</span>
+<span class="w">  </span><span class="na">instances</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="nv">var.instances</span>
+<span class="w">  </span><span class="na">min_disk_size</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+<span class="w">  </span><span class="na">pool</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="nv">var.pool</span>
+<span class="w">  </span><span class="na">volumes</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="nv">var.volumes</span>
+<span class="w">  </span><span class="na">firewall_rules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.firewall_rules</span>
 <span class="p">}</span>
 </code></pre></div></li>
 </ol>
@@ -778,6 +805,15 @@ the <code>module.design.instances</code> map.</p>
 <span class="w">        </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="err">&gt;</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/dev/disk/by-id/*${substr(provider.volumes[&quot;${x}-${pv_key}-${name}&quot;].id, 0, 20)}&quot;</span><span class="p">]</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="nf">contains</span><span class="p">(</span><span class="nv">values.tags</span><span class="p">,</span><span class="w"> </span><span class="err">pv_key</span><span class="p">)</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div>
+  If some of these values are only known after the instances are created, create a second data structure that will merge the original inventory
+  with these values. For example, in Incus, we only known the ip addresses after the instances creation:
+    <div class="highlight"><pre><span></span><code><span class="nb">post_inventory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">host</span><span class="p">,</span><span class="w"> </span><span class="err">values</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="nv">local.inventory</span><span class="p">:</span>
+<span class="w">  </span><span class="na">host</span><span class="w"> </span><span class="o">=</span><span class="err">&gt;</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="err">values</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">local_ip</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nf">try</span><span class="p">(</span><span class="nv">incus_instance.instances[host].ipv4_address</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="na">public_ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">try</span><span class="p">(</span><span class="nv">incus_instance.instances[host].ipv4_address</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">}</span>
 </code></pre></div></p>
 </li>
 <li>
@@ -786,17 +822,21 @@ the <code>module.design.instances</code> map.</p>
     <div class="highlight"><pre><span></span><code><span class="kr">module</span><span class="w"> </span><span class="nv">&quot;configuration&quot;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="na">source</span><span class="w">                </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;../common/configuration&quot;</span>
 <span class="w">  </span><span class="na">inventory</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="nv">local.inventory</span>
+<span class="c1">  #post_inventory        = local.post_inventory # uncomment if you have a post_inventory</span>
 <span class="w">  </span><span class="na">config_git_url</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="nv">var.config_git_url</span>
 <span class="w">  </span><span class="na">config_version</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="nv">var.config_version</span>
 <span class="w">  </span><span class="na">sudoer_username</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="nv">var.sudoer_username</span>
 <span class="w">  </span><span class="na">public_keys</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="nv">var.public_keys</span>
 <span class="w">  </span><span class="na">domain_name</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="nv">module.design.domain_name</span>
+<span class="w">  </span><span class="na">bastion_tag</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="nv">module.design.bastion_tag</span>
 <span class="w">  </span><span class="na">cluster_name</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="nv">var.cluster_name</span>
 <span class="w">  </span><span class="na">guest_passwd</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="nv">var.guest_passwd</span>
 <span class="w">  </span><span class="na">nb_users</span><span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="nv">var.nb_users</span>
 <span class="w">  </span><span class="na">software_stack</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="nv">var.software_stack</span>
 <span class="w">  </span><span class="na">cloud_provider</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="nv">local.cloud_provider</span>
 <span class="w">  </span><span class="na">cloud_region</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="nv">local.cloud_region</span>
+<span class="w">  </span><span class="na">skip_upgrade</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="nv">var.skip_upgrade</span>
+<span class="w">  </span><span class="na">puppetfile</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="nv">var.puppetfile</span>
 <span class="p">}</span>
 </code></pre></div></p>
 </li>
@@ -819,41 +859,104 @@ that contains the attributes of instances that are publicly accessible from Inte
 <span class="w">    </span><span class="err">if</span><span class="w"> </span><span class="nf">contains</span><span class="p">(</span><span class="nv">module.configuration.inventory[host].tags</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;public&quot;</span><span class="p">)</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div>
+  Make sure you use the inventory output of the <code>configuration</code> module.</p>
 </li>
 <li>
 <p><strong>Include the provision module to transmit Terraform data to the Puppet server</strong>. In <code>infrastructure.tf</code>, include the
 <code>common/provision</code> module like this
   <div class="highlight"><pre><span></span><code><span class="kr">module</span><span class="w"> </span><span class="nv">&quot;provision&quot;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="na">source</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;../common/provision&quot;</span>
-<span class="w">  </span><span class="na">bastions</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="nv">local.public_instances</span>
+<span class="w">  </span><span class="na">bastions</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="nv">module.configuration.bastions</span>
 <span class="w">  </span><span class="na">puppetservers</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nv">module.configuration.puppetservers</span>
 <span class="w">  </span><span class="na">tf_ssh_key</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="nv">module.configuration.ssh_key</span>
 <span class="w">  </span><span class="na">terraform_data</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nv">module.configuration.terraform_data</span>
 <span class="w">  </span><span class="na">terraform_facts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">module.configuration.terraform_facts</span>
 <span class="w">  </span><span class="na">hieradata</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="nv">var.hieradata</span>
-<span class="w">  </span><span class="na">sudoer_username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.sudoer_username</span>
+<span class="w">  </span><span class="na">hieradata_dir</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nv">var.hieradata_dir</span>
+<span class="w">  </span><span class="na">eyaml_key</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="nv">var.eyaml_key</span>
+<span class="w">  </span><span class="na">puppetfile</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="nv">var.puppetfile</span>
 <span class="p">}</span>
 </code></pre></div></p>
 </li>
 </ol>
 <h3 id="an-example">An example</h3>
 <ol>
-<li>
-<p><strong>Identify the resources</strong>. For Digital Ocean, Oracle Cloud and Alibaba Cloud, we get the following resource mapping:
-    | Resource    | <a href="https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs">Digital Ocean</a> | <a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs">Oracle Cloud</a> | <a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs">Alibaba Cloud</a> |
-    | ----------- | :-------------------- |  :-------------------- |  :-------------------- |
-    | network     | <a href="https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/vpc">digitalocean_vpc</a> | <a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_vcn">oci_core_vcn</a> | <a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/vpc">alicloud_vpc</a> |
-    | subnet      | built in vpc | <a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_subnet">oci_subnet</a> | <a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/vswitch">alicloud_vswitch</a> |
-    | router      | n/a          | <a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_route_table">oci_core_route_table</a> | built in vpc |
-    | nat         | n/a          | <a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_internet_gateway">oci_core_internet_gateway</a> | <a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/nat_gateway">alicloud_nat_gateway</a> |
-    | firewall    | <a href="https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/firewall">digitalocean_firewall</a> | <a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_security_list">oci_core_security_list</a> | <a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/security_group">alicloud_security_group</a> |
-    | nic         | n/a | built in instance | <a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/network_interface">alicloud_network_interface</a> |
-    | public ip   | <a href="https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/floating_ip">digitalocean_floating_ip</a> | built in instance | <a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/eip">alicloud_eip</a> |
-    | instance    | <a href="https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet">digitalocean_droplet</a> | <a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_instance">oci_core_instance</a> | <a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/instance">alicloud_instance</a> |
-    | volume      | <a href="https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/volume">digitalocean_volume</a> | <a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_volume">oci_core_volume</a> | <a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/disk">alicloud_disk</a> |
-    | attachment  | <a href="https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/volume_attachment">digitalocean_volume_attachment</a> | <a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_volume_attachment">oci_core_volume_attachment</a> | <a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/disk_attachment">alicloud_disk_attachment</a> |</p>
-</li>
+<li><strong>Identify the resources</strong>. For Digital Ocean, Oracle Cloud and Alibaba Cloud, we get the following resource mapping:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th style="text-align: left;"><a href="https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs">Digital Ocean</a></th>
+<th style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs">Oracle Cloud</a></th>
+<th style="text-align: left;"><a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs">Alibaba Cloud</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>network</td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/vpc">digitalocean_vpc</a></td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_vcn">oci_core_vcn</a></td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/vpc">alicloud_vpc</a></td>
+</tr>
+<tr>
+<td>subnet</td>
+<td style="text-align: left;">built in vpc</td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_subnet">oci_subnet</a></td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/vswitch">alicloud_vswitch</a></td>
+</tr>
+<tr>
+<td>router</td>
+<td style="text-align: left;">n/a</td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_route_table">oci_core_route_table</a></td>
+<td style="text-align: left;">built in vpc</td>
+</tr>
+<tr>
+<td>nat</td>
+<td style="text-align: left;">n/a</td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_internet_gateway">oci_core_internet_gateway</a></td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/nat_gateway">alicloud_nat_gateway</a></td>
+</tr>
+<tr>
+<td>firewall</td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/firewall">digitalocean_firewall</a></td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_security_list">oci_core_security_list</a></td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/security_group">alicloud_security_group</a></td>
+</tr>
+<tr>
+<td>nic</td>
+<td style="text-align: left;">n/a</td>
+<td style="text-align: left;">built in instance</td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/network_interface">alicloud_network_interface</a></td>
+</tr>
+<tr>
+<td>public ip</td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/floating_ip">digitalocean_floating_ip</a></td>
+<td style="text-align: left;">built in instance</td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/eip">alicloud_eip</a></td>
+</tr>
+<tr>
+<td>instance</td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet">digitalocean_droplet</a></td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_instance">oci_core_instance</a></td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/instance">alicloud_instance</a></td>
+</tr>
+<tr>
+<td>volume</td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/volume">digitalocean_volume</a></td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_volume">oci_core_volume</a></td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/disk">alicloud_disk</a></td>
+</tr>
+<tr>
+<td>attachment</td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/volume_attachment">digitalocean_volume_attachment</a></td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_volume_attachment">oci_core_volume_attachment</a></td>
+<td style="text-align: left;"><a href="https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/disk_attachment">alicloud_disk_attachment</a></td>
+</tr>
+</tbody>
+</table>
+<ol>
 <li>
 <p><strong>Check minimum requirements</strong>. In the preceding table, we can see Digital Ocean does not have the ability
 to define a network interface. The documentation also leads us to conclude that it is not possible
@@ -1093,7 +1196,7 @@ to spawn a Magic Castle cluster with that provider.
       <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
       
     
   </body>

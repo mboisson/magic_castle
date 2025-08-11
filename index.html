@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.7e37652d.min.css">
       
       
 
@@ -574,6 +574,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#464-incus" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.6.4 Incus
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -978,6 +987,57 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#55-incus" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Incus
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5 Incus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forward_proxy-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      forward_proxy (optional)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privileged-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      privileged (optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared_filesystems-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      shared_filesystems (optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage_pool-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      storage_pool (optional)
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1039,6 +1099,15 @@
   <a href="#65-sshfp-records-and-dnssec" class="md-nav__link">
     <span class="md-ellipsis">
       6.5 SSHFP records and DNSSEC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-dkim-record-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.6 DKIM record (optional)
     </span>
   </a>
   
@@ -1867,6 +1936,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#464-incus" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.6.4 Incus
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2271,6 +2349,57 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#55-incus" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Incus
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5 Incus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forward_proxy-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      forward_proxy (optional)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privileged-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      privileged (optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared_filesystems-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      shared_filesystems (optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage_pool-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      storage_pool (optional)
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2332,6 +2461,15 @@
   <a href="#65-sshfp-records-and-dnssec" class="md-nav__link">
     <span class="md-ellipsis">
       6.5 SSHFP records and DNSSEC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-dkim-record-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.6 DKIM record (optional)
     </span>
   </a>
   
@@ -3057,6 +3195,14 @@ Here is an example:
 <h4 id="463-openstack">4.6.3 OpenStack</h4>
 <p>The image name can be a regular expression. If more than one image is returned by the query
 to OpenStack, the most recent is selected.</p>
+<h4 id="464-incus">4.6.4 Incus</h4>
+<p>The source of the images is <a href="https://images.linuxcontainers.org/">images.linuxcontainers.org/</a>.
+Make sure to select the <code>cloud</code> variant of the distribution image since only these images
+have cloud-init installed and enabled, which is required for bootstrapping Magic Castle.</p>
+<p>Since the cloud variant of images is a requirement for Magic Castle, it is implemented
+that an Incus image name that does not end with <code>/cloud</code> has to be a local image
+created using the process documented in section
+<a href="#1012-create-a-compute-node-image">10.12 - Create a compute node image</a>.</p>
 <h3 id="47-instances">4.7 instances</h3>
 <p>The <code>instances</code> variable is a map that defines the virtual machines that will form
 the cluster. The map' keys define the hostnames and the values are the attributes
@@ -3576,6 +3722,35 @@ connected. Define this if you have or intend to have more than one
 subnets defined in your OpenStack project. Otherwise, Terraform can
 find it automatically. Can be used to force a v4 subnet when both v4 and v6 exist.</p>
 <p><strong>Post build modification effect</strong>: rebuild of all instances at next <code>terraform apply</code>.</p>
+<h3 id="55-incus">5.5 Incus</h3>
+<h4 id="forward_proxy-optional">forward_proxy (optional)</h4>
+<p><strong>default value</strong>: false</p>
+<p>When enabled, the network connections for ports with the <code>proxy</code> tags in firewall rules
+are forwarded between the incus host and the proxy instance. To do so, an
+<a href="https://linuxcontainers.org/incus/docs/main/reference/devices_proxy/">incus proxy device</a>
+is added to the instance for each port.</p>
+<p>This setting can be enabled on at most one cluster per incus host.</p>
+<p><strong>Post build modification effect</strong>: add or remove devices forwarding proxy ports.</p>
+<h3 id="privileged-optional">privileged (optional)</h3>
+<p><strong>default value</strong>: true</p>
+<p>By default, the LXC containers created by Magic Castle are privileged. It is possible for security reasons
+to turn this off by provider <code>privileged = false</code> to the Incus module. However, due to kernel restrictions
+designed to prevent unprivileged users from performing privileged operations like initiating mounts,
+the following features have to be disabled when running with <code>privileged = false</code>:
+- NFS server and mounts (<code>profile::nfs</code>)</p>
+<p><strong>Post build modification effect</strong>: rebuild of all instances at next <code>terraform apply</code>.</p>
+<h3 id="shared_filesystems-optional">shared_filesystems (optional)</h3>
+<p><strong>default value</strong>: <code>[]</code></p>
+<p>This creates a filesystem for every entry in the list and mount that filesystem in every instance under
+<code>/${filesystem.name}</code>. For example, <code>shared_filesystems = ["home"]</code> will create a home filesystem and
+mount it under <code>/home</code> in every instance. This is useful when working with unprivileged containers where
+NFS mount does not work.</p>
+<p><strong>Post build modification effect</strong>: create/destroy the filesystem and mount/unmount it in every instance.</p>
+<h3 id="storage_pool-optional">storage_pool (optional)</h3>
+<p><strong>default value</strong>: <code>"default"</code></p>
+<p>Indicate the name of the <a href="https://linuxcontainers.org/incus/docs/main/howto/storage_pools/">Incus storage pool</a>
+that will be used to create the instance root disk and the shared filesystems.</p>
+<p><strong>Post build modification effect</strong>: rebuild all instance and filesystems.</p>
 <h2 id="6-dns-configuration">6. DNS Configuration</h2>
 <p>Some functionalities in Magic Castle require the registration of DNS records under the
 <a href="#44-cluster_name">cluster name</a> in the selected <a href="#45-domain">domain</a>. This includes
@@ -3652,6 +3827,41 @@ no host key confirmation will be prompted when connecting to the server.</p>
 <div class="highlight"><pre><span></span><code>VerifyHostKeyDNS yes
 </code></pre></div>
 to its configuration file (i.e.: <code>~/.ssh/config</code>).</p>
+<h3 id="66-dkim-record-optional">6.6 DKIM record (optional)</h3>
+<p>Magic Castle DNS module provides an optional input named <code>dkim_public_key</code> that enables
+the creation of a <a href="https://www.cloudflare.com/learning/dns/dns-records/dns-dkim-record/">DNS DKIM record</a>
+that can be used to verify authenticity of emails sent from the cluster.</p>
+<p>The DKIM key can be generated with Terraform and the public key supplied to
+Magic Castle DNS module like this:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;tls_private_key&quot;</span><span class="w"> </span><span class="nv">&quot;dkim_key&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">algorithm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;RSA&quot;</span>
+<span class="w">  </span><span class="na">rsa_bits</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="m">2048</span>
+<span class="p">}</span>
+
+<span class="kr">module</span><span class="w"> </span><span class="nv">&quot;dns&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">source</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;git::https://github.com/ComputeCanada/magic_castle.git//dns/cloudflare&quot;</span>
+<span class="w">  </span><span class="na">name</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="nv">module.openstack.cluster_name</span>
+<span class="w">  </span><span class="na">domain</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="nv">module.openstack.domain</span>
+<span class="w">  </span><span class="na">public_instances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">module.openstack.public_instances</span>
+<span class="w">  </span><span class="na">dkim_public_key</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nv">tls_private_key.dkim_key.public_key_pem</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The public and private key can also be generated with openssl command-line and supplied
+to the DNS module like this:
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>genrsa<span class="w"> </span>-out<span class="w"> </span>dkim_private.pem
+$<span class="w"> </span>openssl<span class="w"> </span>rsa<span class="w"> </span>-in<span class="w"> </span>dkim_private.pem<span class="w"> </span>-pubout<span class="w"> </span>-out<span class="w"> </span>dkim_public.pem
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kr">module</span><span class="w"> </span><span class="nv">&quot;dns&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">source</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;git::https://github.com/ComputeCanada/magic_castle.git//dns/cloudflare&quot;</span>
+<span class="w">  </span><span class="na">name</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="nv">module.openstack.cluster_name</span>
+<span class="w">  </span><span class="na">domain</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="nv">module.openstack.domain</span>
+<span class="w">  </span><span class="na">public_instances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">module.openstack.public_instances</span>
+<span class="w">  </span><span class="na">dkim_public_key</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nf">file</span><span class="p">(</span><span class="s2">&quot;dkim_public.pem&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>The private half of the generated key should be <a href="#4152-encrypting-sensitive-properties">encrypted</a>
+and provided to Puppet through the <a href="#413-hieradata-optional">hieradata variable</a>
+of the Magic Castle cloud provider module.</p>
 <h2 id="7-planning">7. Planning</h2>
 <p>Once your initial cluster configuration is done, you can initiate
 a planning phase where you will ask Terraform to communicate with
@@ -4000,6 +4210,10 @@ be disconnected from the instance.</p>
 <li>Remove cloud-init's logs and artifacts so it can re-run</li>
 <li>Power off the machine</li>
 </ol>
+<p><strong>Warning</strong>: When using Incus, running <code>prepare4image.sh</code> on instance is an irreversible process.
+The script removes <code>/var/lib/cloud</code> which is only created when the instance is created. Therefore,
+to make the instance work properly again, you will either have to taint it or change its image
+attribute to the one you have just created.</p>
 <h4 id="10122-create-the-image">10.12.2 Create the image</h4>
 <p>Once the instance is powered off, access your cloud provider dashboard, find the instance
 and follow the provider's instructions to create the image.</p>
@@ -4007,6 +4221,7 @@ and follow the provider's instructions to create the image.</p>
 <li><a href="https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/tkv-create-ami-from-instance.html">AWS</a></li>
 <li><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/capture-image-portal">Azure</a></li>
 <li><a href="https://cloud.google.com/compute/docs/machine-images/create-machine-images#create-image-from-instance">GCP</a></li>
+<li><a href="https://linuxcontainers.org/incus/docs/main/howto/images_create/">Incus</a></li>
 <li><a href="https://docs.openstack.org/horizon/latest/user/launch-instances.html#create-an-instance-snapshot">OpenStack</a></li>
 <li><a href="https://blog.ovhcloud.com/create-and-use-openstack-snapshots/">OVH</a></li>
 </ul>
@@ -4135,7 +4350,7 @@ provider (e.g: <code>gcp</code>, <code>openstack</code>, <code>aws</code>, etc.)
       <script id="__config" type="application/json">{"base": ".", "features": ["content.code.copy"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="assets/javascripts/bundle.50899def.min.js"></script>
       
     
   </body>
