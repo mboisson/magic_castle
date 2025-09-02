@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
@@ -3391,6 +3391,10 @@ with the tag, unique block devices are attached, no multi-instance attachment is
 <li>GCP: <code>pd-ssd</code></li>
 <li>OpenStack: <code>null</code></li>
 <li>OVH: <code>null</code></li>
+<li><code>managed</code> (optional, def: <code>true</code>): set to <code>false</code> to indicate that the volume already
+exists and should not be created by Terraform only mounted. When a volume is configured with <code>managed = false</code>,
+its name needs to match the following pattern <code>{cluster_name}-{mounting_hostname}-{tag}-{name}</code>,
+for example <code>phoenix-mgmt1-nfs-home</code>.</li>
 </ul>
 <p>Volumes with a tag that have no corresponding instance will not be created.</p>
 <p>In the following example:
@@ -4347,10 +4351,10 @@ provider (e.g: <code>gcp</code>, <code>openstack</code>, <code>aws</code>, etc.)
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["content.code.copy"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": ".", "features": ["content.code.copy"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   </body>
