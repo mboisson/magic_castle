@@ -160,6 +160,12 @@ locals {
     key => lookup(values, "managed", true) ? google_compute_disk.volumes[key].name : data.google_compute_disk.existing_volumes[key].name
   }
 }
+data "google_compute_disk" "existing_volumes" {
+  for_each = {
+    for x, values in module.design.volumes : x => values if ! lookup(values, "managed", true)
+  }
+  name     = "${var.cluster_name}-${each.key}"
+}
 
 resource "google_compute_attached_disk" "attachments" {
   for_each    = module.design.volumes

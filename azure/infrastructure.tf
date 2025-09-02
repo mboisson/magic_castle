@@ -137,6 +137,13 @@ resource "azurerm_managed_disk" "volumes" {
   create_option        = "Empty"
   disk_size_gb         = each.value.size
 }
+data "azurerm_managed_disk" "existing_volumes" {
+  for_each             = {
+    for x, values in module.design.volumes : x => values if ! lookup(values, "managed", true)
+  }
+  name                 = format("%s-%s", var.cluster_name, each.key)
+  resource_group_name  = local.resource_group_name
+}
 
 data "azurerm_managed_disk" "existing_volumes" {
   for_each = {

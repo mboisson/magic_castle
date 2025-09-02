@@ -176,6 +176,16 @@ resource "aws_ebs_volume" "volumes" {
     Name = "${var.cluster_name}-${each.key}"
   }
 }
+data "aws_ebs_volume" "existing_volumes" {
+  for_each = {
+    for x, values in module.design.volumes : x => values if ! lookup(values, "managed", true)
+  }
+
+  filter {
+    name   = "tag:Name"
+    values = ["${var.cluster_name}-${each.key}"]
+  }
+}
 
 data "aws_ebs_volume" "existing_volumes" {
   for_each = {
